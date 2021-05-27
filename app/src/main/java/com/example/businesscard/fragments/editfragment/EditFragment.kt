@@ -1,16 +1,16 @@
 package com.example.businesscard.fragments.editfragment
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.businesscard.R
 import com.example.businesscard.databinding.FragmentEditBinding
@@ -18,25 +18,31 @@ import com.example.businesscard.databinding.FragmentEditBinding
 
 class EditFragment : Fragment() {
     private lateinit var binding: FragmentEditBinding
+    var photo: Bitmap? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit, container, false)
+        if (savedInstanceState != null) {
+            photo = savedInstanceState.getParcelable("photo")
+        }
         when (arguments?.isEmpty) {
             true -> {
-
             }
             false -> arguments?.let {
                 val args = EditFragmentArgs.fromBundle(it)
                 binding.fullNameTextInput.setText(args.fullName)
                 binding.phoneTextInput.setText(args.phone)
                 binding.emailTextInput.setText(args.email)
-
+                photo = args.photo
             }
         }
-
+        if (photo != null) {
+            binding.circleImageView.setImageBitmap(photo)
+        }
         binding.editButton.setOnClickListener {
             findNavController().navigate(R.id.action_editFragment_to_saveFragment)
         }
@@ -80,10 +86,13 @@ class EditFragment : Fragment() {
                 startActivity(emailIntent)
             }
         }
-        binding.circleImageView.setOnClickListener {
 
-        }
         return binding.root
     }
 
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable("photo", photo)
+    }
 }

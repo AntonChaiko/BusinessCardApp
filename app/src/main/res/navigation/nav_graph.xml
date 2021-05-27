@@ -34,5 +34,8 @@
         <argument
             android:name="email"
             app:argType="string" />
+        <argument
+            android:name="photo"
+            app:argType="android.graphics.Bitmap" />
     </fragment>
 </navigation>
