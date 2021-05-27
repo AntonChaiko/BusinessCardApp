@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/editFragment">
+
+    <fragment
+        android:id="@+id/saveFragment"
+        android:name="com.example.businesscard.fragments.savefragment.SaveFragment"
+        android:label="SaveFragment"
+        tools:layout="@layout/fragment_save">
+        <action
+            android:id="@+id/action_saveFragment_to_editFragment"
+            app:destination="@id/editFragment"
+            app:popUpTo="@id/editFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.businesscard.fragments.editfragment.EditFragment"
+        android:label="EditFragment"
+        tools:layout="@layout/fragment_edit">
+        <action
+            android:id="@+id/action_editFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="Phone"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+</navigation>
