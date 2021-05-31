@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.editfragment.EditFragment">
@@ -12,31 +12,60 @@
             android:id="@+id/toolbar_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
+            android:background="@color/toolbarColor"
             android:minHeight="?android:attr/actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/toolbar_title"
+            <Button
+                android:id="@+id/qr_code_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/my_card"
+                android:layout_gravity="start"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:background="@color/toolbarColor"
+                android:gravity="center"
+                android:src="@drawable/ic_baseline_view"
+                android:text="@string/qr_code_scanner"
                 android:textColor="@color/white" />
 
-            <Button
-                android:id="@+id/edit_button"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textColor="@color/white"
+            <ImageButton
+                android:id="@+id/contacts_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:background="@color/toolbarColor"
                 android:gravity="center"
-                android:text="@string/edit" />
+                android:src="@drawable/ic_baseline_view"
+                android:text="@string/add_new_contact"
+                android:textColor="@color/white" />
 
         </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/delete_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/delete"
+            android:textColor="@color/toolbarColor"
+            app:layout_constraintBottom_toTopOf="@+id/circleImageView"
+            app:layout_constraintEnd_toStartOf="@+id/circleImageView"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_top" />
+
+        <Button
+            android:id="@+id/switch_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:textColor="@color/toolbarColor"
+            app:layout_constraintBottom_toTopOf="@+id/circleImageView"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_top" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
@@ -77,9 +106,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/full_name_text_input"
-                    android:focusable="false"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,9 +119,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_text_input"
-                    android:focusable="false"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,13 +133,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_text_input"
                     android:layout_width="match_parent"
-                    android:focusable="false"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -134,5 +164,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/qr_code_image_view"
+            android:layout_width="@dimen/width_barcode"
+            android:layout_height="@dimen/height_barcode"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

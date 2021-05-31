@@ -2,5 +2,6 @@
 <resources>
     <dimen name="button_margin">8dp</dimen>
     <dimen name="linear_layout_margin">16dp</dimen>
-
+<dimen name="width_barcode">150dp</dimen>
+<dimen name="height_barcode">150dp</dimen>
 </resources>

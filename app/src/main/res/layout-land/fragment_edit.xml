@@ -12,7 +12,7 @@
             android:id="@+id/toolbar_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
+            android:background="@color/toolbarColor"
             android:minHeight="?android:attr/actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,17 +25,27 @@
                 android:layout_gravity="center"
                 android:text="@string/my_card"
                 android:textColor="@color/white" />
-
             <Button
-                android:id="@+id/edit_button"
+                android:id="@+id/qr_code_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:background="@color/toolbarColor"
+                android:gravity="center"
+                android:src="@drawable/ic_baseline_view"
+                android:text="@string/qr_code_scanner"
+                android:textColor="@color/white" />
+            <ImageButton
+                android:id="@+id/contacts_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:background="@color/toolbarColor"
                 android:gravity="center"
-                android:text="@string/edit"
+                android:src="@drawable/ic_baseline_view"
+                android:text="@string/add_new_contact"
                 android:textColor="@color/white" />
-
         </androidx.appcompat.widget.Toolbar>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -106,7 +116,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/linear_layout_margin"
             android:paddingRight="@dimen/linear_layout_margin"

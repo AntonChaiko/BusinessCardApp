@@ -10,4 +10,10 @@
     <string name="phone">Phone</string>
     <string name="full_name">Full name</string>
     <string name="save">save</string>
+    <string name="delete">DELETE</string>
+    <string name="add_new_contact">add new contact</string>
+    <string name="qr_code">QR CODE</string>
+    <string name="add">add</string>
+    <string name="qr_code_scanner">qr code</string>
+    <string name="scan_qr">scan qr</string>
 </resources>
